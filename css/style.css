@@ -1,0 +1,10 @@
+.avatar {
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-image: url("../img/default-user.svg") no-repeat;
+    background-color: black;
+    margin-right: 16px
+}
