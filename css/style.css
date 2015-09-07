@@ -1,3 +1,7 @@
+body{
+  background-color: blue;
+}
+
 .avatar {
     background-repeat: no-repeat;
     background-position: 50%;
@@ -7,4 +11,23 @@
     background-image: url("../img/default-user.svg") no-repeat;
     background-color: black;
     margin-right: 16px
+}
+
+.avatar-big {
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    background-image: url("../img/default-user.svg") no-repeat;
+    background-color: black;
+    margin: 16px
+}
+
+.loginarea {
+  padding: 16px;
+}
+
+.logincard {
+  background-color: white;
 }
