@@ -13,11 +13,13 @@
   <link rel="import" href="bower_components/iron-image/iron-image.html">
   <link rel="import" href="bower_components/paper-input/paper-input.html">
   <link rel="import" href="bower_components/paper-button/paper-button.html">
+  <script src="js/script.js"></script>
+
 </head>
 <body>
   <paper-material class="logincard">
     <iron-collapse opened>
-      <paper-menu>
+      <paper-menu id="userlist">
         <paper-item>
             <div class="avatar"></div>
     <paper-item-body two-line>
@@ -31,7 +33,7 @@
       <div align="center">
         <paper-icon-button icon="close"></paper-icon-button>
       <div class="avatar-big"></div>
-      <h2>Youngbin Han</h2>
+      <h2 id="selected_username">Youngbin Han</h2>
         </div>
       <paper-input type="text" label="Password" id="entry"></paper-input>
       <div align="center">
