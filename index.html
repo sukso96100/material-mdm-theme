@@ -33,11 +33,17 @@
       <div class="avatar-big"></div>
       <h2>Youngbin Han</h2>
         </div>
-      <paper-input label="Password"></paper-input>
+      <paper-input type="text" label="Password" id="entry"></paper-input>
       <div align="center">
-      <paper-button>OK</paper-button>
+      <paper-button type="submit" id="ok_button">OK</paper-button>
     </div>
   </iron-collapse>
+<div align="center" style="padding:8px;">
+  <paper-icon-button src="../common/img/languages/generic.png" id="language_button"></paper-icon-button>
+  <paper-icon-button src="../common/img/sessions/default.svg" id="session_button"></paper-icon-button>
+  <paper-icon-button icon="settings-power" id="quit_button"></paper-icon-button>
+</div>
+
   </paper-material>
 </body>
 </html>
