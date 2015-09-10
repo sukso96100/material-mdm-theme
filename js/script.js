@@ -1,7 +1,7 @@
 document.addEventListener('WebComponentsReady', function() {
+
   document.getElementById('usersdialog').toggle();
 });
-
 
     // Save l10n strings translated by MDM into variables, so that other .js files can access them.
     var login_label = "$login_label";
@@ -20,6 +20,7 @@ var selected_row = -1;
 			document.getElementById("entry").value = "disabled";
 			document.getElementById("entry").disabled = "disabled";
 			document.getElementById("ok_button").disabled = "disabled";
+      $('#ok_button').css('cursor', 'progress');
 		}
 
 		// Called by MDM to enable user input
@@ -27,16 +28,19 @@ var selected_row = -1;
 			document.getElementById("entry").value = "";
 			document.getElementById("entry").disabled = false;
 			document.getElementById("ok_button").disabled = false;
+      $('#ok_button').css('cursor', 'default');
 		}
 
     // Called by MDM to allow the user to input a username
     function mdm_prompt(message) {
       mdm_enable();
-      document.getElementById("label").innerHTML = message;
+      document.getElementById("entry").label = message;
       document.getElementById("entry").value = "";
       document.getElementById("entry").type = "text";
       document.getElementById("entry").focus();
-      selected_row = -1;
+      // selected_row = -1;
+      document.getElementById('usersdialog').close();
+      document.getElementById('logindialog').open();
     }
 
     // Called by MDM to allow the user to input a password
@@ -46,6 +50,8 @@ var selected_row = -1;
       document.getElementById("entry").value = "";
       document.getElementById("entry").type = "password";
       document.getElementById("entry").focus();
+      document.getElementById('usersdialog').close();
+      document.getElementById('logindialog').open();
     }
 
     //사용자 입력을 MDM 으로 보내기
@@ -58,10 +64,20 @@ var selected_row = -1;
         return false;
     }
 
-    function open_loginbox_from_usersdialog(username){
+    function open_loginbox_from_usersdialog(username, gecos){
       alert("USER###"+username);
-      document.getElementById('logindialog').toggle();
+      document.getElementById('usersdialog').close();
+      document.getElementById('logindialog').open();
+      if(gecos==""){
+        document.getElementById('selected_user').innerHTML = username;
+      }else {
+        document.getElementById('selected_user').innerHTML = gecos;
+      }
+    }
 
+    function backToUsersList(){
+      document.getElementById('usersdialog').open();
+      document.getElementById('logindialog').close();
     }
     // Initialize a few things in the theme
     document.getElementById("error").style.display = 'none';
@@ -71,6 +87,7 @@ var selected_row = -1;
     //키보드 네비게이션
     // Keyboard navigation and focus
     $("body").on("keydown", function(e){
+      console.log(e.keyCode);
         if(e.keyCode === 38) {
             // up
             select_user_at_index(selected_user - 1, true);
@@ -95,6 +112,10 @@ var selected_row = -1;
                 send_login();
                 return false;
             }
+        }else if (e.keyCode == 27) {
+            // esc
+            console.log("ESC");
+            return false;
         }
     });
 
@@ -103,7 +124,7 @@ var selected_row = -1;
     //mdm_add_user("example","Example User", "Not Logged in", "PATH");
 		function mdm_add_user(username, gecos, status, avatar) {
 
-			var p1 = '<paper-item onclick="open_loginbox_from_usersdialog('+'"'+username+'"'+')"><div class="avatar"></div><paper-item-body two-line><div>';
+			var p1 = '<paper-item onclick="open_loginbox_from_usersdialog('+"'"+username+"','"+gecos+"'"+')"><div class="avatar"></div><paper-item-body two-line><div>';
       var p2;
       if(gecos==undefined){
 				p2 = username;

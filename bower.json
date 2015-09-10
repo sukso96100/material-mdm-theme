@@ -27,6 +27,7 @@
     "paper-item": "PolymerElements/paper-item#~1.0.2",
     "paper-material": "PolymerElements/paper-material#~1.0.2",
     "paper-menu": "PolymerElements/paper-menu#~1.1.0",
+    "paper-menu-button": "PolymerElements/paper-menu-button#~1.0.3",
     "polymer": "Polymer/polymer#^1.0.0"
   }
 }
