@@ -1,3 +1,7 @@
+document.addEventListener('WebComponentsReady', function() {
+  document.getElementById('usersdialog').toggle();
+});
+
 
     // Save l10n strings translated by MDM into variables, so that other .js files can access them.
     var login_label = "$login_label";
@@ -5,6 +9,11 @@
     var enter_your_password_label = "$enter_your_password_label";
 
 var selected_row = -1;
+
+// function onLoad(){
+//   document.getElementById("usersbox").toggle();
+//   document.getElementById("loginbox").toggle();
+// }
 
     // Called by MDM to disable user input
 		function mdm_disable() {
@@ -33,7 +42,7 @@ var selected_row = -1;
     // Called by MDM to allow the user to input a password
     function mdm_noecho(message) {
       mdm_enable();
-      document.getElementById("label").innerHTML = message;
+      document.getElementById("entry").label = message;
       document.getElementById("entry").value = "";
       document.getElementById("entry").type = "password";
       document.getElementById("entry").focus();
@@ -49,6 +58,11 @@ var selected_row = -1;
         return false;
     }
 
+    function open_loginbox_from_usersdialog(username){
+      alert("USER###"+username);
+      document.getElementById('logindialog').toggle();
+
+    }
     // Initialize a few things in the theme
     document.getElementById("error").style.display = 'none';
     document.getElementById("timed").style.display = 'none';
@@ -86,73 +100,27 @@ var selected_row = -1;
 
     //사용자 목록에 사용자 추가
 		// Called by MDM to add a user to the list of users
+    //mdm_add_user("example","Example User", "Not Logged in", "PATH");
 		function mdm_add_user(username, gecos, status, avatar) {
 
-			var useritem = '<paper-item><div class="avatar"></div><paper-item-body two-line><div>';
-			if(gecos==undefined){
-				useritem = useritem + username;
+			var p1 = '<paper-item onclick="open_loginbox_from_usersdialog('+'"'+username+'"'+')"><div class="avatar"></div><paper-item-body two-line><div>';
+      var p2;
+      if(gecos==undefined){
+				p2 = username;
 			}else{
-				useritem = useritem + gecos;
+				p2 = gecos;
 			}
-			useritem = useritem + '</div><div secondary>';
+			var p3 = '</div><div secondary>';
+      var p4;
 			if (status != "") {
-			useritem = useritem + status;
+			p4 = status;
 			}
-			useritem = usetitem + '</div></paper-item-body></paper-item>'
-			//
-			//
-			// var link1 = document.createElement('a');
-			// 	link1.setAttribute('href', "javascript:alert('USER###"+username+"')");
-			//
-			// var link2 = document.createElement('a');
-			// 	link2.setAttribute('href', "javascript:alert('USER###"+username+"')");
-			//
-			// var picture = document.createElement('img');
-			// 	picture.setAttribute('class', "user-picture");
-			// 	picture.setAttribute('src', "file://" + avatar);
-			// 	picture.setAttribute('onerror', "this.src='file:///usr/share/pixmaps/nobody.png';");
-			//
-			// var realname_div = document.createElement('div');
-			// 	realname_div.setAttribute('class', "usergecos");
-			// 	realname_div.innerHTML = gecos;
-			//
-			// var username_div = document.createElement('div');
-			// 	username_div.setAttribute('class', "username");
-			// 	username_div.innerHTML = username;
-			//
-			// if (status != "") {
-			// 	var userstatus_div = document.createElement('div');
-			// 	userstatus_div.setAttribute('class', "userstatus");
-			// 	userstatus_div.innerHTML = status;
-			// }
-			//
-			// link1.appendChild(picture);
-			//
-			// if (gecos != "") {
-			// 	link2.appendChild(realname_div);
-			// }
-			// else {
-			// 	link2.appendChild(username_div);
-			// }
-			//
-			// if (status != "") {
-			// 	link2.appendChild(userstatus_div);
-			// }
+			var p5 = '</div></paper-item-body></paper-item>'
+      console.log(p1+p2+p3+p4+p5);
+      var useritem = p1+p2+p3+p4+p5;
 
-				var userlist = document.getElementById("userlist");
-				userlist.appendChild(useritem);
-			// var table = document.getElementById("users");
-			//
-      //       var rowCount = table.rows.length;
-      //       var row = table.insertRow(rowCount);
-      //     	row.username = username;
-			//
-      //       var cell1 = row.insertCell(0);
-      //       cell1.width = "50px";
-      //       cell1.appendChild(link1);
-			//
-      //       var cell2 = row.insertCell(1);
-      //       cell2.appendChild(link2);
+        $('#userlist').append(useritem);
+
 		}
 
     //세션목록에 세션추가.

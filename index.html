@@ -13,39 +13,39 @@
   <link rel="import" href="bower_components/iron-image/iron-image.html">
   <link rel="import" href="bower_components/paper-input/paper-input.html">
   <link rel="import" href="bower_components/paper-button/paper-button.html">
+  <link rel="import" href="bower_components/paper-dialog/paper-dialog.html">
+  <link rel="import" href="bower_components/neon-animation/animations/scale-up-animation.html">
+<link rel="import" href="bower_components/neon-animation/animations/scale-down-animation.html">
+ <script src="js/jquery-2.1.1.min.js"></script>
   <script src="js/script.js"></script>
 
 </head>
-<body>
-  <paper-material class="logincard">
-    <iron-collapse opened>
+<body onload="mdm_add_user('example','Example User', 'Not Logged in', 'PATH')">
+    <paper-dialog id="usersdialog" entry-animation="scale-up-animation" exit-animation="scale-down-animation">
       <paper-menu id="userlist">
-        <paper-item>
-            <div class="avatar"></div>
-    <paper-item-body two-line>
-      <div>Youngbin Han</div>
-      <div secondary>Logged In</div>
-    </paper-item-body>
-  </paper-item>
       </paper-menu>
-    </iron-collapse>
-    <iron-collapse opened class="loginarea">
+      <div align="center">
+      <paper-icon-button src="../common/img/languages/generic.png" id="language_button"></paper-icon-button>
+      <paper-icon-button src="../common/img/sessions/default.svg" id="session_button"></paper-icon-button>
+      <paper-icon-button icon="power-settings-new" id="quit_button"></paper-icon-button>
+    </div>
+    </paper-dialog>
+
+    <paper-dialog id="logindialog" entry-animation="scale-up-animation" exit-animation="scale-down-animation">
       <div align="center">
         <paper-icon-button icon="close"></paper-icon-button>
       <div class="avatar-big"></div>
-      <h2 id="selected_username">Youngbin Han</h2>
+      <h2>Youngbin Han</h2>
         </div>
       <paper-input type="text" label="Password" id="entry"></paper-input>
       <div align="center">
       <paper-button type="submit" id="ok_button">OK</paper-button>
+      <paper-icon-button src="../common/img/languages/generic.png" id="language_button"></paper-icon-button>
+      <paper-icon-button src="../common/img/sessions/default.svg" id="session_button"></paper-icon-button>
+      <paper-icon-button icon="power-settings-new" id="quit_button"></paper-icon-button>
     </div>
-  </iron-collapse>
-<div align="center" style="padding:8px;">
-  <paper-icon-button src="../common/img/languages/generic.png" id="language_button"></paper-icon-button>
-  <paper-icon-button src="../common/img/sessions/default.svg" id="session_button"></paper-icon-button>
-  <paper-icon-button icon="settings-power" id="quit_button"></paper-icon-button>
-</div>
+  </paper-dialog>
 
-  </paper-material>
+</div>
 </body>
 </html>
