@@ -26,10 +26,6 @@ body{
     margin: 16px
 }
 
-.loginarea {
-  padding: 16px;
-}
-
-.logincard {
-  background-color: white;
+#logindialog{
+  width: 350px;
 }

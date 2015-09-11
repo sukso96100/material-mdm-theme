@@ -7,6 +7,8 @@ function initLogin() {
    $("body").css("display", "none");
   $('body').css('cursor', 'progress');
   $('body').css('background-color', 'black');
+  document.getElementById("error").style.display = 'none';
+
   // mdm_add_user('example','Example User', 'Not Logged in', 'PATH');
 }
 document.addEventListener('WebComponentsReady', function() {
@@ -91,9 +93,7 @@ var selected_row = -1;
       document.getElementById('logindialog').close();
     }
     // Initialize a few things in the theme
-    document.getElementById("error").style.display = 'none';
     document.getElementById("timed").style.display = 'none';
-    document.getElementById("current_session_picture").width = 16;
 
 function selectWithEnter(username, gecos, avatar){
   if (event.keyCode == 13){
