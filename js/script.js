@@ -4,20 +4,26 @@ var enter_your_username_label = "$enter_your_username_label";
 var enter_your_password_label = "$enter_your_password_label";
 
 function initLogin() {
+   $("body").css("display", "none");
   $('body').css('cursor', 'progress');
   $('body').css('background-color', 'black');
   // mdm_add_user('example','Example User', 'Not Logged in', 'PATH');
 }
 document.addEventListener('WebComponentsReady', function() {
 
-  document.getElementById('usersdialog').toggle();
+  $("body").css("display", "block");
+  document.getElementById('usersdialog').open();
   $('body').css('cursor', 'default');
   if(!document.getElementById("avatar")){
     mdm_prompt(enter_your_username_label);
     document.getElementById('close_btn').disabled = "disabled";
   }
 });
+$(document).ready(function() {
+  //
 
+
+  });
 var selected_row = -1;
 
 
