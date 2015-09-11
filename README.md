@@ -8,3 +8,5 @@ sudo cp material-mdm-theme /usr/share/mdm/html-themes/material-mdm-theme
 ```
 
 To configure theme launch mdmsetup with the command ```sudo mdmsetup``` than select Material
+
+![Preview](https://raw.githubusercontent.com/sukso96100/material-mdm-theme/master/screenshot.png)
