@@ -12,18 +12,16 @@ function initLogin() {
 document.addEventListener('WebComponentsReady', function() {
 
   $("body").css("display", "block");
+  displayTime();
   document.getElementById('usersdialog').open();
   $('body').css('cursor', 'default');
   if(!document.getElementById("avatar")){
     mdm_prompt(enter_your_username_label);
     document.getElementById('close_btn').disabled = "disabled";
   }
+
 });
-$(document).ready(function() {
-  //
 
-
-  });
 var selected_row = -1;
 
 
