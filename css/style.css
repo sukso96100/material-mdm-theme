@@ -3,6 +3,7 @@ body{
 }
 
 .avatar {
+  background-size: contain;
     background-repeat: no-repeat;
     background-position: 50%;
     border-radius: 50%;
@@ -14,6 +15,7 @@ body{
 }
 
 .avatar-big {
+  background-size: contain;
     background-repeat: no-repeat;
     background-position: 50%;
     border-radius: 50%;

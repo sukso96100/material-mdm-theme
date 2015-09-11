@@ -13,6 +13,7 @@
   <link rel="import" href="bower_components/paper-item/paper-item-body.html">
   <link rel="import" href="bower_components/iron-image/iron-image.html">
   <link rel="import" href="bower_components/paper-input/paper-input.html">
+  <link rel="import" href="bower_components/paper-input/paper-input-container.html">
   <link rel="import" href="bower_components/paper-button/paper-button.html">
   <link rel="import" href="bower_components/paper-dialog/paper-dialog.html">
   <link rel="import" href="bower_components/neon-animation/animations/scale-up-animation.html">
@@ -21,41 +22,53 @@
   <script src="js/script.js"></script>
 
 </head>
-<body onload="mdm_add_user('example','Example User', 'Not Logged in', 'PATH')">
+<body onload="initLogin();">
     <paper-dialog id="usersdialog" entry-animation="scale-up-animation"
      exit-animation="scale-down-animation" modal no-cancel-on-esc-key>
-      <paper-menu id="userlist">
-      </paper-menu>
+      <paper-menu id="userlist"></paper-menu>
       <div align="center">
-      <paper-icon-button src="../common/img/languages/generic.png" id="language_button"></paper-icon-button>
-      <paper-icon-button src="../common/img/sessions/default.svg" id="session_button"></paper-icon-button>
-      <paper-menu-button>
-        <paper-icon-button icon="power-settings-new" id="quit_button" class="dropdown-trigger"></paper-icon-button>
-<paper-menu class="dropdown-content">
-  <paper-item onclick="alert('FORCE-SHUTDOWN###')">$shutdown</paper-item>
-  <paper-item onclick="alert('FORCE-SUSPEND###')">$suspend</paper-item>
-  <paper-item onclick="alert('FORCE-RESTART###')">$restart</paper-item>
-      </paper-menu>
-      </paper-menu-button>
+        <paper-menu-button>
+          <paper-icon-button icon="power-settings-new"
+          id="quit_button" class="dropdown-trigger"></paper-icon-button>
+          <paper-menu class="dropdown-content">
+                  <paper-item onclick="alert('FORCE-SHUTDOWN###')">$shutdown</paper-item>
+                  <paper-item onclick="alert('FORCE-SUSPEND###')">$suspend</paper-item>
+                  <paper-item onclick="alert('FORCE-RESTART###')">$restart</paper-item>
+                </paper-menu>
+        </paper-menu-button>
     </div>
     </paper-dialog>
 
     <paper-dialog id="logindialog" entry-animation="scale-up-animation"
      exit-animation="scale-down-animation" modal no-cancel-on-esc-key>
       <div align="center">
-        <paper-icon-button icon="close" onclick="backToUsersList()"></paper-icon-button>
-      <div class="avatar-big"></div>
-      <h2 id="selected_user">Youngbin Han</h2>
+        <paper-icon-button id="close_btn" icon="close" onclick="backToUsersList()"></paper-icon-button>
+      <div id="avatar-big" class="avatar-big"></div>
+      <h2 id="selected_user"></h2>
+      <p id="msg">$enter_your_username_label</p>
         </div>
         <form onsubmit="send_login()">
-      <paper-input type="text" label="Password" id="entry">  </paper-input>
+          <paper-input-container>
+      <input type="password" id="entry"></input>
+    </paper-input-container>
       <div align="center">
-    <paper-button type="submit" id="ok_button">$ok_label</paper-button>
+    <paper-button type="submit" id="ok_button" onclick="send_login()">$ok_label</paper-button>
       </form>
-      <paper-icon-button src="../common/img/languages/generic.png" id="language_button"></paper-icon-button>
-      <paper-icon-button src="../common/img/sessions/default.svg" id="session_button"></paper-icon-button>
       <paper-menu-button>
-        <paper-icon-button icon="power-settings-new" id="quit_button" class="dropdown-trigger"></paper-icon-button>
+      <paper-icon-button icon="language"
+       id="language_button" class="dropdown-trigger"></paper-icon-button>
+      <paper-menu class="dropdown-content" id="lang_menu">
+            </paper-menu>
+    </paper-menu-button>
+      <paper-menu-button>
+      <paper-icon-button icon="settings"
+       id="session_button" class="dropdown-trigger"></paper-icon-button>
+      <paper-menu class="dropdown-content" id="session_menu">
+            </paper-menu>
+        </paper-menu-button>
+      <paper-menu-button>
+        <paper-icon-button icon="power-settings-new"
+        id="quit_button" class="dropdown-trigger"></paper-icon-button>
         <paper-menu class="dropdown-content">
                 <paper-item onclick="alert('FORCE-SHUTDOWN###')">$shutdown</paper-item>
                 <paper-item onclick="alert('FORCE-SUSPEND###')">$suspend</paper-item>
