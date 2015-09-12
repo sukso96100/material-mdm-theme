@@ -16,6 +16,7 @@ function displayTime() {
 	color = "#"+h+m+s;
 	//set background color
 	document.body.style.background = color;
+	document.getElementById("avatar-big-bg").style.background = color;
 	//set time
 	// document.getElementById("hex").innerHTML = color;
 

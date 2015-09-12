@@ -14,6 +14,7 @@
   <link rel="import" href="bower_components/iron-image/iron-image.html">
   <link rel="import" href="bower_components/paper-input/paper-input.html">
   <link rel="import" href="bower_components/paper-input/paper-input-container.html">
+  <link rel="import" href="bower_components/paper-input/paper-input-error.html">
   <link rel="import" href="bower_components/paper-button/paper-button.html">
   <link rel="import" href="bower_components/paper-dialog/paper-dialog.html">
   <link rel="import" href="bower_components/neon-animation/animations/scale-up-animation.html">
@@ -42,17 +43,21 @@
 
     <paper-dialog id="logindialog" entry-animation="scale-up-animation"
      exit-animation="scale-down-animation" modal no-cancel-on-esc-key>
+     <section id="avatar-big-bg">
       <div align="center">
         <paper-icon-button id="close_btn" icon="close" onclick="backToUsersList()"></paper-icon-button>
-      <div id="avatar-big" class="avatar-big"></div>
+<div id="avatar-big" class="avatar-big"></div>
+      </div>
+    </section>
+    <div align="center">
       <h2 id="selected_user"></h2>
-      <p id="msg">$enter_your_username_label</p>
-      <p id="error" style="color:red;"></p>
         </div>
         <form onsubmit="send_login()">
-          <paper-input-container>
-      <input type="password" id="entry"></input>
+    <paper-input-container id="entry_container">
+      <label id="msg">$enter_your_username_label</label>
+      <input is="iron-input" type="password" id="entry"></input>
     </paper-input-container>
+    <p id="error" style="color:red;"></p>
       <div align="center">
     <paper-button type="submit" id="ok_button" onclick="send_login()">$ok_label</paper-button>
       </form>

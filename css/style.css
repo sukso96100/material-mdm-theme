@@ -9,7 +9,7 @@ body{
     border-radius: 50%;
     width: 50px;
     height: 50px;
-    background-image: url("../img/default-user.svg") no-repeat;
+    background-image: url("../img/default-user.svg");
     background-color: black;
     margin-right: 16px
 }
@@ -21,11 +21,26 @@ body{
     border-radius: 50%;
     width: 150px;
     height: 150px;
-    background-image: url("../img/default-user.svg") no-repeat;
+    background-image: url("../img/default-user.svg");
     background-color: black;
-    margin: 16px
+    margin-top: 24px;
+    margin-bottom: -64px;
+
+}
+#close_btn{
+  margin-top: 8px;
+  color: white;
+}
+
+#avatar-big-bg{
+  margin-top: 0;
+  height: 200px;
 }
 
 #logindialog{
   width: 350px;
+}
+
+#selected_user{
+  padding-top: 16px;
 }
