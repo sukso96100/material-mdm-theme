@@ -212,23 +212,23 @@ $('#lang_menu').append(lang_item);
 
 		}
 
-    // Called by MDM if the SHUTDOWN command shouldn't appear in the greeter
-    function mdm_hide_shutdown() {
-      document.getElementById("shutdown").style.display = 'none';
-      document.getElementById("shutdown_lb").style.display = 'none';
-    }
-
-    // Called by MDM if the SUSPEND command shouldn't appear in the greeter
-    function mdm_hide_suspend() {
-      document.getElementById("suspend").style.display = 'none';
-      document.getElementById("suspend_lb").style.display = 'none';
-    }
-
-    // Called by MDM if the RESTART command shouldn't appear in the greeter
-    function mdm_hide_restart() {
-      document.getElementById("restart").style.display = 'none';
-        document.getElementById("restart_lb").style.display = 'none';
-    }
+    // // Called by MDM if the SHUTDOWN command shouldn't appear in the greeter
+    // function mdm_hide_shutdown() {
+    //   document.getElementById("shutdown").style.display = 'none';
+    //   document.getElementById("shutdown_lb").style.display = 'none';
+    // }
+    //
+    // // Called by MDM if the SUSPEND command shouldn't appear in the greeter
+    // function mdm_hide_suspend() {
+    //   document.getElementById("suspend").style.display = 'none';
+    //   document.getElementById("suspend_lb").style.display = 'none';
+    // }
+    //
+    // // Called by MDM if the RESTART command shouldn't appear in the greeter
+    // function mdm_hide_restart() {
+    //   document.getElementById("restart").style.display = 'none';
+    //     document.getElementById("restart_lb").style.display = 'none';
+    // }
     //
     // // Called by MDM if the QUIT command shouldn't appear in the greeter
     // function mdm_hide_quit() {
