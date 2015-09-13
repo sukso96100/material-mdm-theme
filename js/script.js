@@ -22,6 +22,7 @@ document.addEventListener('WebComponentsReady', function() {
       mdm_prompt(enter_your_username_label);
       document.getElementById('close_btn').disabled = "disabled";
     }
+    document.getElementById("welcome_message").style.display = 'none';
   }, 1000)
 
 
