@@ -15,7 +15,9 @@ document.addEventListener('WebComponentsReady', function() {
 
   $("body").css("display", "block");
   displayTime();
+  document.getElementById('welcome_dialog').open();
   setTimeout(function(){
+    document.getElementById('welcome_dialog').close();
     document.getElementById('usersdialog').open();
     $('body').css('cursor', 'default');
     if(!document.getElementById("avatar")){

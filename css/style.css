@@ -45,11 +45,16 @@ body{
   padding-top: 16px;
 }
 
-#welcome_message{
+#welcome_dialog{
   color: white;
-  position: absolute;
-       top: 45%;
-       left: 45%;
-       margin-right: -50%;
-       transform: translate(-50%, -50%)
+  background-color: transparent;
+  box-shadow: none;
+}
+
+#welcome_message{
+  font-size: 1.5em;
+}
+
+#clock{
+  font-size: 4em;
 }

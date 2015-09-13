@@ -17,6 +17,16 @@ function displayTime() {
 	//set background color
 	document.body.style.background = color;
 	document.getElementById("avatar-big-bg").style.background = color;
+
+	var ap="AM";
+
+//to add AM or PM after time
+
+if(h>11) ap="PM";
+if(h>12) h=h-12;
+if(h==0) h=12;
+
+	document.getElementById("clock").innerHTML = h + ":" + m + " | " + ap;
 	//set time
 	// document.getElementById("hex").innerHTML = color;
 

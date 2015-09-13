@@ -25,7 +25,13 @@
 
 </head>
 <body onload="initLogin();">
-  <h2 id="welcome_message">WELCOME</h2>
+    <paper-dialog id="welcome_dialog"
+    no-cancel-on-esc-key>
+      <div align="center">
+    <p id="clock">00:00</p>
+  <p id="welcome_message">WELCOME</p>
+      </div>
+    </paper-dialog>
     <paper-dialog id="usersdialog" entry-animation="scale-up-animation"
      exit-animation="scale-down-animation" modal no-cancel-on-esc-key>
       <paper-menu id="userlist"></paper-menu>
