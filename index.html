@@ -25,6 +25,7 @@
 
 </head>
 <body onload="initLogin();">
+  <h2 id="welcome_message">WELCOME</h2>
     <paper-dialog id="usersdialog" entry-animation="scale-up-animation"
      exit-animation="scale-down-animation" modal no-cancel-on-esc-key>
       <paper-menu id="userlist"></paper-menu>
@@ -33,9 +34,9 @@
           <paper-icon-button icon="power-settings-new"
           id="quit_button" class="dropdown-trigger"></paper-icon-button>
           <paper-menu class="dropdown-content">
-                  <paper-item onclick="alert('FORCE-SHUTDOWN###')">$shutdown</paper-item>
-                  <paper-item onclick="alert('FORCE-SUSPEND###')">$suspend</paper-item>
-                  <paper-item onclick="alert('FORCE-RESTART###')">$restart</paper-item>
+                  <paper-item onclick="alert('FORCE-SHUTDOWN###')" id="shutdown">$shutdown</paper-item>
+                  <paper-item onclick="alert('FORCE-SUSPEND###')" id="suspend">$suspend</paper-item>
+                  <paper-item onclick="alert('FORCE-RESTART###')" id="restart">$restart</paper-item>
                 </paper-menu>
         </paper-menu-button>
     </div>
@@ -77,9 +78,9 @@
         <paper-icon-button icon="power-settings-new"
         id="quit_button" class="dropdown-trigger"></paper-icon-button>
         <paper-menu class="dropdown-content">
-                <paper-item onclick="alert('FORCE-SHUTDOWN###')">$shutdown</paper-item>
-                <paper-item onclick="alert('FORCE-SUSPEND###')">$suspend</paper-item>
-                <paper-item onclick="alert('FORCE-RESTART###')">$restart</paper-item>
+                <paper-item onclick="alert('FORCE-SHUTDOWN###')" id="shutdown_lb">$shutdown</paper-item>
+                <paper-item onclick="alert('FORCE-SUSPEND###')" id="suspend_lb">$suspend</paper-item>
+                <paper-item onclick="alert('FORCE-RESTART###')" id="restart_lb">$restart</paper-item>
               </paper-menu>
       </paper-menu-button>
     </div>

@@ -15,18 +15,24 @@ document.addEventListener('WebComponentsReady', function() {
 
   $("body").css("display", "block");
   displayTime();
-  document.getElementById('usersdialog').open();
-  $('body').css('cursor', 'default');
-  if(!document.getElementById("avatar")){
-    mdm_prompt(enter_your_username_label);
-    document.getElementById('close_btn').disabled = "disabled";
-  }
+  setTimeout(function(){
+    document.getElementById('usersdialog').open();
+    $('body').css('cursor', 'default');
+    if(!document.getElementById("avatar")){
+      mdm_prompt(enter_your_username_label);
+      document.getElementById('close_btn').disabled = "disabled";
+    }
+  }, 1000)
+
 
 });
 
 var selected_row = -1;
 
-
+// Called by MDM to set the welcome message
+function set_welcome_message(message) {
+  document.getElementById("welcome_message").innerHTML = message;
+}
     // Called by MDM to disable user input
 		function mdm_disable() {
 			// document.getElementById("entry").value = "disabled";
@@ -202,3 +208,31 @@ function selectWithEnter(username, gecos, avatar){
 $('#lang_menu').append(lang_item);
 
 		}
+
+    // Called by MDM if the SHUTDOWN command shouldn't appear in the greeter
+    function mdm_hide_shutdown() {
+      document.getElementById("shutdown").style.display = 'none';
+      document.getElementById("shutdown_lb").style.display = 'none';
+    }
+
+    // Called by MDM if the SUSPEND command shouldn't appear in the greeter
+    function mdm_hide_suspend() {
+      document.getElementById("suspend").style.display = 'none';
+      document.getElementById("suspend_lb").style.display = 'none';
+    }
+
+    // Called by MDM if the RESTART command shouldn't appear in the greeter
+    function mdm_hide_restart() {
+      document.getElementById("restart").style.display = 'none';
+        document.getElementById("restart_lb").style.display = 'none';
+    }
+    //
+    // // Called by MDM if the QUIT command shouldn't appear in the greeter
+    // function mdm_hide_quit() {
+    //   document.getElementById("quit").style.display = 'none';
+    // }
+    //
+    // // Called by MDM if the XDMCP command shouldn't appear in the greeter
+    // function mdm_hide_xdmcp() {
+    //   document.getElementById("xdmcp").style.display = 'none';
+    // }
