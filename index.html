@@ -26,14 +26,14 @@
 </head>
 <body onload="initLogin();">
     <paper-dialog id="welcome_dialog"
-    no-cancel-on-esc-key>
+    no-cancel-on-esc-key no-cancel-on-outside-click>
       <div align="center">
     <p id="clock">00:00</p>
   <p id="welcome_message">WELCOME</p>
       </div>
     </paper-dialog>
     <paper-dialog id="usersdialog" entry-animation="scale-up-animation"
-     exit-animation="scale-down-animation" modal no-cancel-on-esc-key>
+     exit-animation="scale-down-animation" no-cancel-on-outside-click no-cancel-on-esc-key>
       <paper-menu id="userlist"></paper-menu>
       <div align="center">
         <paper-menu-button>
@@ -49,7 +49,7 @@
     </paper-dialog>
 
     <paper-dialog id="logindialog" entry-animation="scale-up-animation"
-     exit-animation="scale-down-animation" modal no-cancel-on-esc-key>
+     exit-animation="scale-down-animation" no-cancel-on-outside-click no-cancel-on-esc-key>
      <section id="avatar-big-bg">
       <div align="center">
         <paper-icon-button id="close_btn" icon="close" onclick="backToUsersList()"></paper-icon-button>
